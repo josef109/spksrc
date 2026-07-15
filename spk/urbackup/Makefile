@@ -1,6 +1,6 @@
 SPK_NAME = urbackup
-SPK_VERS = 2.5.32
-SPK_REV = 1
+SPK_VERS = 2.5.37
+SPK_REV = 5
 SPK_ICON = src/urbackup.png
 DSM_UI_DIR = app
 
@@ -30,6 +30,12 @@ SERVICE_PORT = 55414
 ADMIN_PORT = $(SERVICE_PORT)
 SERVICE_PORT_TITLE =  Urbackup (HTTP)
 
+POST_STRIP_TARGET = urbackup_extra_install
+
+.PHONY: urbackup_extra_install
+urbackup_extra_install:
+	install -m 755 -d $(STAGING_DIR)/bin
+	install -m 755 src/helper_fix $(STAGING_DIR)/bin
 
 SPK_COMMANDS = bin/blockalign bin/urbackupclientctl sbin/urbackupclientbackend
 

@@ -1,0 +1,29 @@
+--- mount_helper/main.cpp.orig	2023-12-13 09:28:17.437391497 +0000
++++ mount_helper/main.cpp	2023-12-13 09:29:09.155652064 +0000
+@@ -249,7 +249,7 @@
+ 
+ bool chown_dir(const std::string& dir)
+ {
+-	passwd* user_info = getpwnam("urbackup");
++	passwd* user_info = getpwnam("sc-urbackup");
+ 	if(user_info)
+ 	{
+ 		int rc = chown(dir.c_str(), user_info->pw_uid, user_info->pw_gid);
+@@ -426,7 +426,7 @@
+ 	chown_dir(mountpoint);
+ 	chown_dir("/dev/loop"+convert(devnum));
+ 	
+-	passwd* user_info = getpwnam("urbackup");
++	passwd* user_info = getpwnam("sc-urbackup");
+ 	std::string uid = "uid=0";
+ 	std::string gid = "gid=0";
+ 	if(user_info)
+@@ -618,7 +618,7 @@
+ 		chown_dir(devpoint);
+ 		
+ 		std::string mount_options="";
+-		passwd* user_info = getpwnam("urbackup");
++		passwd* user_info = getpwnam("sc-urbackup");
+ 		if(user_info)
+ 		{
+ 			mount_options+="uid="+convert(user_info->pw_uid)+",gid="+convert(user_info->pw_gid)+",allow_root";

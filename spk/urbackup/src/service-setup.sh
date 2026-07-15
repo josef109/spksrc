@@ -14,8 +14,9 @@ SVC_WRITE_PID=y
 service_postinst ()
 {
    	mkdir -p ${SYNOPKG_PKGVAR}/urbackup
-    echo "${SYNOPKG_PKGHOME}" > ${SYNOPKG_PKGVAR}/urbackup/backupfolder 
-    sed -i 's/package/root/g' /var/packages/urbackup/conf/privilege
+    echo "${SYNOPKG_PKGHOME}" > ${SYNOPKG_PKGVAR}/urbackup/backupfolder
+    mkdir -p -m 0755 /etc/urbackup
+    echo "${SYNOPKG_PKGHOME}" > /etc/urbackup/backupfolder
 }
 
 service_prestart ()

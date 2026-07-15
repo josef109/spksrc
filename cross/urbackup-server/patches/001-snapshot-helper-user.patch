@@ -1,0 +1,11 @@
+--- snapshot_helper/main.cpp.orig	2023-12-13 09:09:04.975137594 +0000
++++ snapshot_helper/main.cpp	2023-12-13 09:09:25.139460054 +0000
+@@ -242,7 +242,7 @@
+ 
+ bool chown_dir(const std::string& dir)
+ {
+-	passwd* user_info = getpwnam("urbackup");
++	passwd* user_info = getpwnam("sc-urbackup");
+ 	if(user_info)
+ 	{
+ 		int rc = chown(dir.c_str(), user_info->pw_uid, user_info->pw_gid);

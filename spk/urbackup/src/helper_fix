@@ -1,0 +1,4 @@
+#!/bin/bash
+cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &>/dev/null || exit 1
+chown -v root:root urbackup_mount_helper urbackup_snapshot_helper
+chmod -v +s urbackup_mount_helper urbackup_snapshot_helper
